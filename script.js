@@ -37,3 +37,45 @@ function isValidDateFormat(date) {
     const regex = /^\d{2}-\d{2}-\d{4}$/;
     return regex.test(date);
 }
+
+// Form validation on submit
+document.getElementById("surveyForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+    clearErrors();
+
+    let valid = true;
+
+    // Name
+    const name = document.getElementById("name").value;
+    if (!isNotEmpty(name)) {
+        showError("nameError", "Name is required");
+        valid = false;
+    }
+
+    // Email
+    const email = document.getElementById("email").value;
+    if (!isValidEmail(email)) {
+        showError("emailError", "Please enter a valid email address");
+        valid = false;
+    }
+
+    // Radio
+    if (!hasCheckedOption("cuisine")) {
+        showError("cuisineError", "Please select a cuisine type");
+        valid = false;
+    }
+
+    // Checkbox
+    if (!hasCheckedOption("foods")) {
+        showError("foodsError", "Select at least one food option");
+        valid = false;
+    }
+
+    // Dropdown
+    const frequency = document.getElementById("frequency").value;
+    if (!isSelected(frequency)) {
+        showError("frequencyError", "Please select your frequency");
+        valid = false;
+    }
+
+    
