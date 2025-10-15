@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Meal Habits Survey</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>Daily Meal Habits Survey</h1>
+    <p class="intro">Please fill out this short survey to share your food habits and preferences.</p>
+
+    <form id="surveyForm" action="https://httpbin.org/post" method="post" novalidate>
+
+        <fieldset>
+            <legend>Basic Information</legend>
+
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" aria-label="Full name">
+            <span class="error" id="nameError"></span>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" aria-label="Email address">
+            <span class="error" id="emailError"></span>
+        </fieldset>
+
+        <fieldset>
+            <legend>Food Preferences</legend>
+
+            <p>1. Which kind of cuisine do you enjoy the most?</p>
+            <label><input type="radio" name="cuisine" value="Italian"> Italian</label>
+            <label><input type="radio" name="cuisine" value="Indian"> Indian</label>
+            <label><input type="radio" name="cuisine" value="Chinese"> Chinese</label>
+            <label><input type="radio" name="cuisine" value="Mexican"> Mexican</label>
+            <span class="error" id="cuisineError"></span>
+
+            <p>2. Which foods do you usually include in your meals? (Select all that apply)</p>
+            <label><input type="checkbox" name="foods" value="Vegetables"> Vegetables</label>
+            <label><input type="checkbox" name="foods" value="Fruits"> Fruits</label>
+            <label><input type="checkbox" name="foods" value="Meat"> Meat</label>
+            <label><input type="checkbox" name="foods" value="Dairy"> Dairy</label>
+            <span class="error" id="foodsError"></span>
+
+            <p>3. How often do you eat out?</p>
+            <select id="frequency" name="frequency" aria-label="How often do you eat out?">
+                <option value="">-- Please choose an option --</option>
+                <option value="Daily">Daily</option>
+                <option value="Weekly">Weekly</option>
+                <option value="Monthly">Monthly</option>
+                <option value="Rarely">Rarely</option>
+            </select>
+            <span class="error" id="frequencyError"></span>
+        </fieldset>
+
+        <fieldset>
+            <legend>Extra details</legend>
+
+            <label for="name">Your Name(alphanumeric only):</label>
+            <input type="text" id="username" name="username" aria-label="Username">
+            <span class="error" id="usernameError"></span>
+
+            <label for="surveyDate">Survey Date (DD-MM-YYYY):</label>
+            <input type="text" id="surveyDate" name="surveyDate" placeholder="DD-MM-YYYY" aria-label="Survey date">
+            <span class="error" id="surveyDateError"></span>
+
+            <label for="rating">Rate your cooking skills (1-10):</label>
+            <input type="number" id="rating" name="rating" min="1" max="10" aria-label="Cooking skills rating">
+            <span class="error" id="ratingError"></span>
+
+            <label for="comments">Additional Comments:</label>
+            <textarea id="comments" name="comments" rows="4" aria-label="Additional comments"></textarea>
+        </fieldset>
+
+        <input type="submit" value="Submit Survey">
+
+    </form>
+
+    <div id="successMessage" class="success"></div>
+
+    <script src="script.js"></script>
+
+    <p class="footer-note">Thank you for taking the time to share your thoughts!</p>
+
+</body>
+</html>
