@@ -17,3 +17,12 @@ function isValidEmail(email) {
     const regex = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
     return regex.test(email);
 }
+
+// Validation helpers: hasChecked and isSelected
+function hasCheckedOption(name) {
+    return document.querySelectorAll(`input[name="${name}"]:checked`).length > 0;
+}
+
+function isSelected(value) {
+    return value !== "";
+}
