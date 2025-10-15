@@ -26,3 +26,14 @@ function hasCheckedOption(name) {
 function isSelected(value) {
     return value !== "";
 }
+
+// Validation helpers: username and dateFormat
+function isValidUsername(username) {
+    const regex = /^[a-zA-Z0-9]+$/;
+    return regex.test(username);
+}
+
+function isValidDateFormat(date) {
+    const regex = /^\d{2}-\d{2}-\d{4}$/;
+    return regex.test(date);
+}
