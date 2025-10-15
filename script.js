@@ -98,3 +98,11 @@ document.getElementById("surveyForm").addEventListener("submit", function (event
         showError("ratingError", "Please enter a rating between 1 and 10");
         valid = false;
     }
+
+    // success Message
+    if (valid) {
+        document.getElementById("successMessage").textContent =
+            "Thank you! Your survey has been submitted successfully.";
+        document.getElementById("surveyForm").reset();
+    }
+});
