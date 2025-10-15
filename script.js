@@ -78,4 +78,23 @@ document.getElementById("surveyForm").addEventListener("submit", function (event
         valid = false;
     }
 
-    
+     // Regex username
+    const username = document.getElementById("username").value;
+    if (!isValidUsername(username)) {
+        showError("usernameError", "Username must be alphanumeric (A-Z, 0-9)");
+        valid = false;
+    }
+
+    // Date validation
+    const date = document.getElementById("surveyDate").value;
+    if (!isValidDateFormat(date)) {
+        showError("surveyDateError", "Date format must be DD-MM-YYYY");
+        valid = false;
+    }
+
+    // Number input
+    const rating = document.getElementById("rating").value;
+    if (!isNotEmpty(rating) || rating < 1 || rating > 10) {
+        showError("ratingError", "Please enter a rating between 1 and 10");
+        valid = false;
+    }
