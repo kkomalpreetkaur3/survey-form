@@ -45,7 +45,7 @@ function isValidDateFormat(date) {
 
 // Main validation on form submit 
 document.getElementById("surveyForm").addEventListener("submit", function (event) {
-    event.preventDefault(); // prevent default submission
+    event.preventDefault(); 
     clearErrors();
 
     let valid = true;
@@ -63,6 +63,8 @@ document.getElementById("surveyForm").addEventListener("submit", function (event
         showError("emailError", "Enter a valid email address");
         valid = false;
     }
+
+    debugger;
 
     // Radio button
     if (!hasCheckedOption("cuisine")) {
